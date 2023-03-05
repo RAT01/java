@@ -1,0 +1,30 @@
+import java.io.*;
+
+public class copyFile {
+    public static void main(String[] args) {
+        try {
+            // Open input file
+            File inputFile = new File("abcd.txt");
+            FileReader fileReader = new FileReader(inputFile);
+
+            // Create output file
+            File outputFile = new File("aftercopy.txt");
+            FileWriter fileWriter = new FileWriter(outputFile);
+
+            // Copy file contents
+            int character;
+            while ((character = fileReader.read()) != -1) {
+                fileWriter.write(character);
+            }
+
+            // Close files
+            fileReader.close();
+            fileWriter.close();
+
+            System.out.println("File copied successfully.");
+        } catch (IOException e) {
+            // Catch file IO exception
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
